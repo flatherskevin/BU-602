@@ -1,0 +1,10 @@
+{
+    "name": "bu-602",
+    "version": "0.0.1",
+    "author": "Kevin Flathers",
+    "scripts": {},
+    "dependencies": {
+        "eslint": "^4.16.0"
+    },
+    "description": "Boston University MSCIS MET-CS-602"
+}
