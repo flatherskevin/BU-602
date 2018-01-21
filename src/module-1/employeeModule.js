@@ -2,8 +2,8 @@ let employeeArray = [];
 let currentId = 0;
 
 module.exports.lookupById = (id) => {
-    for(const employee of employeeArray){
-        if(employee.id === id){
+    for (const employee of employeeArray) {
+        if (employee.id === id) {
             return employee;
         }
     }
@@ -13,8 +13,8 @@ module.exports.lookupById = (id) => {
 module.exports.lookupByLastName = (last) => {
     let returnArr = []
 
-    for(const employee of employeeArray){
-        if(employee.lastName === last){
+    for (const employee of employeeArray) {
+        if (employee.lastName === last) {
             returnArr.push(employee);
         }
     }
@@ -23,11 +23,10 @@ module.exports.lookupByLastName = (last) => {
 }
 
 module.exports.addEmployee = (first, last) => {
+    currentId++;
     employeeArray.push({
         id: currentId,
         firstName: first,
         lastName: last
     });
-
-    currentId++;
 }
