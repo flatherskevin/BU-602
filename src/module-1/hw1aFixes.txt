@@ -1,0 +1,14 @@
+The reason why the objects being returned by the module are being edited is due to array mutability within JS.
+
+a = ['foo', 'bar']
+b = a
+a[0] = 'other'
+
+console.log(a) //[other,bar]
+console.log(b) //[other,bar]
+
+To avoid this, you need to generate a new array with the same values as the original array.
+
+a.map(val => {b.push(val)});
+
+This will avoid the mutability that comes with JS. Any method within the module that uses, in my case, employeeArray with be affected by mutability.

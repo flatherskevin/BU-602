@@ -1,4 +1,8 @@
+
+// Array to hold emplyee objects
 let employeeArray = [];
+
+// Counter used for unique id
 let currentId = 0;
 
 module.exports.lookupById = (id) => {

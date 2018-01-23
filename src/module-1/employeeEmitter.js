@@ -5,14 +5,17 @@ module.exports = class EmployeeEmitter extends EventEmitter {
 
     constructor(data) {
         super();
+
+        // Array to hold emplyee objects
         this.data = data;
-        this.employeeArray = [];
+
+        // Counter used for unique id
         this.currentId = 0;
     }
 
     lookupById(id) {
         this.emit('lookupById', JSON.stringify({ id: id }));
-        for (const employee of this.employeeArray) {
+        for (const employee of this.data) {
             if (employee.id === id) {
                 return employee;
             }
@@ -24,7 +27,7 @@ module.exports = class EmployeeEmitter extends EventEmitter {
         this.emit('lookupByLastName', JSON.stringify({ lastName: last }));
         let returnArr = []
 
-        for (const employee of this.employeeArray) {
+        for (const employee of this.data) {
             if (employee.lastName === last) {
                 returnArr.push(employee);
             }
@@ -36,7 +39,7 @@ module.exports = class EmployeeEmitter extends EventEmitter {
     addEmployee(first, last) {
         this.emit('addEmployee', JSON.stringify({ firstName: first, lastName: last }));
         this.currentId++;
-        this.employeeArray.push({
+        this.data.push({
             id: this.currentId,
             firstName: first,
             lastName: last
